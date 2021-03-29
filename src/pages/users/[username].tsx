@@ -2,7 +2,44 @@ import { HiOutlineLogout } from 'react-icons/hi'
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 
-const Profile = ({ profile }) => {
+type profileProps = {
+  profile: {
+    login: string
+    id: number
+    node_id: string
+    avatar_url: string
+    gravatar_id: string
+    url: string
+    html_url: string
+    followers_url: string
+    following_url: string
+    gists_url: string
+    starred_url: string
+    subscriptions_url: string
+    organizations_url: string
+    repos_url: string
+    events_url: string
+    received_events_url: string
+    type: string
+    site_admin: boolean
+    name: string
+    company: string
+    blog: string
+    location: string
+    email: string
+    hireable: boolean
+    bio: string
+    twitter_username: string
+    public_repos: number
+    public_gists: number
+    followers: number
+    following: number
+    created_at: string
+    updated_at: string
+  }
+}
+
+const Profile = ({ profile }: profileProps) => {
   return (
     <div className="min-h-screen flex flex-col text-white">
       <header className="py-4 px-3 flex justify-between bg-gray-900">
