@@ -1,55 +1,12 @@
 import { useState } from 'react'
-import {
-  HiOutlineLogout,
-  HiOutlineStar,
-  HiOutlineLockClosed,
-  HiOutlineLockOpen
-} from 'react-icons/hi'
-import TabHeader from 'components/TabHeader'
-import TabRepositoryItem from 'components/TabRepositoryItem'
-import TabUserItem from 'components/TabUserItem'
-import NavTabs from 'components/NavTabs'
-import { GetServerSideProps } from 'next'
+import { HiOutlineLogout } from 'react-icons/hi'
+import TabHeader from '../../components/TabHeader'
+import TabRepositoryItem from '../../components/TabRepositoryItem'
+import TabUserItem from '../../components/TabUserItem'
+import NavTabs from '../../components/NavTabs'
 import Link from 'next/link'
 
-type profileProps = {
-  profile: {
-    login: string
-    id: number
-    node_id: string
-    avatar_url: string
-    gravatar_id: string
-    url: string
-    html_url: string
-    followers_url: string
-    following_url: string
-    gists_url: string
-    starred_url: string
-    subscriptions_url: string
-    organizations_url: string
-    repos_url: string
-    events_url: string
-    received_events_url: string
-    type: string
-    site_admin: boolean
-    name: string
-    company: string
-    blog: string
-    location: string
-    email: string
-    hireable: boolean
-    bio: string
-    twitter_username: string
-    public_repos: number
-    public_gists: number
-    followers: number
-    following: number
-    created_at: string
-    updated_at: string
-  }
-}
-
-const fetchApi = async (username: string, type: string) => {
+const fetchApi = async (username, type) => {
   const res = await fetch(`https://api.github.com/users/${username}${type}`)
   return await res.json()
 }
@@ -174,7 +131,7 @@ const Profile = ({ profile, repos, followers, following }) => {
 
 export default Profile
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
   const profile = await fetchApi(`${params?.username}`, '')
   const repos = await fetchApi(`${params?.username}`, '/repos')
   const followers = await fetchApi(`${params?.username}`, '/followers')

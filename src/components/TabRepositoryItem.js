@@ -13,13 +13,13 @@ const TabRepositoryItem = ({ repo }) => {
       <div className="mt-3 flex justify-between items-center">
         <div className="flex items-center text-gray-400">
           <HiOutlineStar className="mr-1 text-yellow-300 h-5 w-5" />
-          32
+          {repo.stargazers_count}
         </div>
         <span>
           {repo.private ? (
-            <HiOutlineLockOpen className="h-5 w-6 text-red-500" />
+            <HiOutlineLockClosed className="h-5 w-6 text-red-500" />
           ) : (
-            <HiOutlineLockClosed className="h-5 w-6 text-green-500" />
+            <HiOutlineLockOpen className="h-5 w-6 text-green-500" />
           )}
         </span>
       </div>

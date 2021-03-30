@@ -19,7 +19,7 @@ const Home = () => {
     )
   }
 
-  const handleUser = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUser = (event) => {
     setUser(event.target.value)
   }
 

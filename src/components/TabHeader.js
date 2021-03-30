@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import { HiArrowLeft } from 'react-icons/hi'
 
 const TabHeader = ({ children, setActiveTab }) => {
