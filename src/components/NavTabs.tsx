@@ -1,7 +1,11 @@
 import { HiOutlineHome, HiUserGroup } from 'react-icons/hi'
 import { FiGithub } from 'react-icons/fi'
 
-const NavTabs = ({ setActiveTab }) => {
+type NavTabsProps = {
+  setActiveTab: (value: string) => void
+}
+
+const NavTabs = ({ setActiveTab }: NavTabsProps) => {
   return (
     <nav className="py-2 fixed bottom-0 inset-x-0 bg-white text-gray-900 flex justify-around rounded-lg rounded-b-none">
       <button
